@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
@@ -53,4 +53,3 @@ namespace Palkanlaskenta.classes
         }
     }
 }
-
