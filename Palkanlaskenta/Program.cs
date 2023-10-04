@@ -7,7 +7,7 @@ namespace Palkanlaskenta
 {
     class Program
     {
-        public static connectToDataBase connect = new connectToDataBase();
+        public static ConnectToDataBase connect = new ConnectToDataBase();
         static void Main(string[] args)
         {
             Console.WriteLine("Hei, Anna valintasi.");
