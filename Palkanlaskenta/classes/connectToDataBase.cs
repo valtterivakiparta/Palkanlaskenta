@@ -27,7 +27,7 @@ namespace Palkanlaskenta.classes
         public void CreateTable(SQLiteConnection conn)
         {
             SQLiteCommand SQLiteCommand;
-            string createSQL = "SHOW TABLES";
+            string createSQL = "select * from workerList";
             SQLiteCommand = conn.CreateCommand();
             SQLiteCommand.CommandText = createSQL;
             SQLiteCommand.ExecuteNonQuery();
