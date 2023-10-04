@@ -1,63 +1,55 @@
-﻿using Microsoft.Data.Sqlite;
-using SQLitePCL;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace Palkanlaskenta.classes
 {
-    internal class ConnectToDataBase
+    class ConnectToDataBase
     {
-
-        public void connectToDatabase()
+        public SQLiteConnection createConnect()
         {
-            SqliteConnection sqlite_conn;
-            sqlite_conn = createDatabase();
-            createTablebase(sqlite_conn);
-            Console.WriteLine("Ali osaa koodaa");
-
-        }
-
-        static SqliteConnection createDatabase()
-        {
-            SqliteConnection sqlite_conn;
-            // Create a new database connection:
-            sqlite_conn = new SqliteConnection("");
-            //Open the connection
+        SQLiteConnection SQLiteConn;
+        SQLiteConn = new SQLiteConnection("Data Source = palkanlaskenta.db; Version = 3; New = True; Compress = True;");
             try
             {
-                sqlite_conn.Open();
+                SQLiteConn.Open();
             }
-            catch (Exception e)
+            catch
             {
 
+
             }
-            return sqlite_conn;
+            return SQLiteConn;
         }
-        public void createTablebase(SqliteConnection conn)
+        public void CreateTable(SQLiteConnection conn)
         {
-            Console.WriteLine("luotu");
-            SqliteCommand sqlite_cmd;
-            string CreateTable = "CREATE TABLE workerslist (PersonID INT, LastName VARCHAR(20), FirstName VARCHAR(20), Salary DECIMAL, Address VARCHAR(30), Age INT)";
-            string CreateTable1 = "CREATE TABLE SignIn (Email VARCHAR(40), Password VARCHAR(30), Username VARCHAR(40), Tel VARCHAR(20))";
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = CreateTable;
-            sqlite_cmd.ExecuteNonQuery();
-            sqlite_cmd.CommandText = CreateTable1;
-            sqlite_cmd.ExecuteNonQuery();
+            SQLiteCommand SQLiteCommand;
+            string createSQL = "select * from workerList";
+            SQLiteCommand = conn.CreateCommand();
+            SQLiteCommand.CommandText = createSQL;
+            SQLiteCommand.ExecuteNonQuery();
         }
-
-        public void InsertData(SqliteConnection conn)
+        static void insertData(SQLiteConnection conn)
         {
-            Console.WriteLine("insertattu");
+            SQLiteCommand SQLiteCommand;
+            SQLiteCommand = conn.CreateCommand();
+            SQLiteCommand.CommandText = "";
+            SQLiteCommand.ExecuteNonQuery();
         }
-
-        public void ReadData(SqliteConnection conn)
+        static void ReadData(SQLiteConnection conn)
         {
-            Console.WriteLine("luettu");
+            SQLiteDataReader SQLiteReader;
+            SQLiteCommand SQLiteCommand;
+            SQLiteCommand = conn.CreateCommand();
+            SQLiteReader = SQLiteCommand.ExecuteReader();
+            while (SQLiteReader.Read())
+            {
+                string readerString = SQLiteReader.GetString(0);
+                Console.WriteLine(readerString);
+            }
         }
     }
 }

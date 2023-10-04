@@ -1,4 +1,4 @@
-﻿using Palkanlaskenta.classes;
+using Palkanlaskenta.classes;
 using System;
 using System.Diagnostics;
 
@@ -23,7 +23,6 @@ namespace Palkanlaskenta
             {
                 case 0:
                     Console.WriteLine("Näytä työntekijät");
-
                     break;
 
                 case 1:
@@ -37,10 +36,10 @@ namespace Palkanlaskenta
 
                     Console.WriteLine("Lisää työtunnit");
                     break;
+
                 case 4:
-                    connect.connectToDatabase();
+                    connect.CreateTable(connect.createConnect());
                     break;
-            }
         }
     }
 }
