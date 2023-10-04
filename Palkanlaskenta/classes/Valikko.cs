@@ -16,12 +16,8 @@ namespace Palkanlaskenta.classes
             Console.WriteLine("Haluatko kirjautua vai rekisteröityä?");
             Console.WriteLine("Valitsemalla 1 kirjaudut sisään");
             Console.WriteLine("Valitsemalla 2 rekisteröidyt järjestelmään");
-
-            
-
-
-
             string valinta = (string)Console.ReadLine();
+
             switch (valinta)
             {
                 case "1":

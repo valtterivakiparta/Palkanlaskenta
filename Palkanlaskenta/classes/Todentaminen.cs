@@ -9,30 +9,14 @@ namespace Palkanlaskenta.classes
     class todentaminen
     {
         public static Valikot menu = new Valikot();
-
-
-        
-        
-        
-        
-        
-        public bool login()
+        public void login()
         {
-
             Console.WriteLine("Ole hyvä ja syötä käyttäjätunnus");
-           string kayttis = Console.ReadLine();
+            string kayttis = Console.ReadLine();
             Console.WriteLine("Ole hyvä ja syötä salasana");
-          string salis = Console.ReadLine();
-             
-           if (kayttis == kayttis1) { }
-         
-            return true;
-            
+            string salis = Console.ReadLine();
         }
-
-
-
-        public string register()
+        public void register()
         {
             Console.WriteLine("Ole hyvä ja syötä käyttäjätunnus");
             string kayttis1 = Console.ReadLine();
@@ -51,21 +35,10 @@ namespace Palkanlaskenta.classes
 
                 Console.WriteLine("Ole hyvä ja syötä salasana uudelleen");
                 salis2 = Console.ReadLine();
-
-                
-
-
-                
-                
-
-
-                   
             }
 
             menu.Valikko();
             Console.WriteLine("Rekisteröityminen onnistui");
-
-            return kayttis1, salis1;
 
         }
     } 
