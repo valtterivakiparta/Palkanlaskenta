@@ -1,0 +1,13 @@
+done:
+- kirjautusmisvalikko Ali
+- rekisteröitymisvalikko Ali
+- Tietokannan luonti Juuso
+- Tietokantaan pöytien luonti Juuso
+- Valtteri apukäsinä molemmille
+- Valtteri työsti tietokantaan sen jälkeen, kun Juuso sai tehtyä alun tietokannalle
+- Juuso loi muistiinpanot palkanlaskenta algoritmiä varten
+tulevaa:
+- Valtteri kattoo tietokannat loppuun
+- Ali yrittää saada rekisteröitymisessä tiedot tallennettua, jotta kirjautuminen onnistuu
+- Juuso parantaa UML-mallia, kun uusia ominaisuuksia saadaan lisättyä ja laajentaa vaatimusmäärittelyä
+- Juuso ja Ali tekee palkanlaskenta algoritmin
