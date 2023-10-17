@@ -20,18 +20,37 @@ namespace Palkanlaskenta.classes
             catch
             {
 
-
             }
             return SQLiteConn;
         }
-        public void CreateTable(SQLiteConnection conn)
+        public void CreateTables(SQLiteConnection conn)
         {
             SQLiteCommand SQLiteCommand;
-            string createSQL = "select * from workerList";
+            // string dropTable = "DROP TABLE workerList";
+            // string dropTables = "DROP TABLE SignIn";
+            string createWorkerList = "CREATE TABLE IF NOT EXISTS workerList(PersonID INTEGER, LastName TEXT, FirstName TEXT, Salary REAL, address TEXT, age INTEGER)"; // Create Table if table no exists
+            string createAccounts = "CREATE TABLE IF NOT EXISTS accounts(email TEXT, password TEXT, Username TEXT, tel TEXT)";                                          // Create Table if table no exists
             SQLiteCommand = conn.CreateCommand();
-            SQLiteCommand.CommandText = createSQL;
+            SQLiteCommand.CommandText = createAccounts;
+            SQLiteCommand.ExecuteNonQuery();
+            SQLiteCommand.CommandText = createWorkerList; 
             SQLiteCommand.ExecuteNonQuery();
         }
+       /* CREATE TABLE workersList(    
+            PersonID INTEGER,
+            LastName TEXT
+            FirstName TEXT,
+            Salary REAL,
+            Address TEXT,
+            Age INTEGER
+        )
+        
+        CREATE TABLE account ( 
+            Email TEXT,
+            Password TEXT,
+            Username TEXT,
+            Tel TEXT
+        )*/
         static void insertData(SQLiteConnection conn)
         {
             SQLiteCommand SQLiteCommand;
