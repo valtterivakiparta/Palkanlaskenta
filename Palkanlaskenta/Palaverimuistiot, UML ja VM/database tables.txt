@@ -1,0 +1,15 @@
+CREATE TABLE Workers_list (
+	PersonID int,
+	LastName,
+	FirstName,
+	Salary DECIMAL,
+	Address,
+	Age int
+)
+
+CREATE TABLE Sign_In (
+	Email,
+	Password,
+	Username,
+	Tel
+)

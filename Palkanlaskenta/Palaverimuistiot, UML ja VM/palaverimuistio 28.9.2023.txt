@@ -1,0 +1,13 @@
+Scrum palaveri 28.9.2023 klo 12:30
+done:
+- git hoidettu loppuun, kaikilla oma fork/branch, repo jaettu kaikille, alille gitin salojen opetus
+- vaatimusmäärittelyn aloittaminen ja tekeminen
+- Valtteri suunnitteli tietokannan rakennetta, jonka aikana Juuso ja Ali työsti vaatimusmäärittelyä
+- Ali teki päävalikon
+- Tehtiin tietokannan tablet
+
+Tulevaa:
+- työtunnit softaa näkyviin ja kategoriat palkkoihin
+- Ali lähtee suunnittelee kirjautumisvalikkoa
+- Juuso tekee UML-mallinuksen
+- Valtteri tekee tietokantaa ja suunnittelee
