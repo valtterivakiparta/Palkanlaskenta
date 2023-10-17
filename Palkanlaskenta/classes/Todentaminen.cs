@@ -1,45 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Palkanlaskenta.classes
 {
-    class todentaminen
+    class Todentaminen
     {
         public static Valikot menu = new Valikot();
         public void login()
         {
-            Console.WriteLine("Ole hyvä ja syötä käyttäjätunnus");
-            string kayttis = Console.ReadLine();
-            Console.WriteLine("Ole hyvä ja syötä salasana");
-            string salis = Console.ReadLine();
+            Console.Write("Username: ");
+            string username = Console.ReadLine();
+            Console.Write("Password: ");
+            string password = Console.ReadLine();
         }
         public void register()
         {
-            Console.WriteLine("Ole hyvä ja syötä käyttäjätunnus");
-            string kayttis1 = Console.ReadLine();
+            Console.Write("Username: ");
+            string username = Console.ReadLine();
+            askPasswords();
 
-            Console.WriteLine("Ole hyvä ja syötä salasana");
-            string salis1 = Console.ReadLine();
-
-            Console.WriteLine("Ole hyvä ja syötä salasana uudelleen");
-            string salis2 = Console.ReadLine();
-
-            while (salis1 != salis2)
+        }
+        private void askPasswords()
+        {
+            Console.Write("Password: ");
+            string password = Console.ReadLine();
+            Console.Write("Retype password: ");
+            if (String.IsNullOrEmpty(password)) 
             {
-                Console.WriteLine("Salasanat eivät täsmää. Yritä uudelleen.");
-                Console.WriteLine("Ole hyvä ja syötä salasana");
-                salis1 = Console.ReadLine();
-
-                Console.WriteLine("Ole hyvä ja syötä salasana uudelleen");
-                salis2 = Console.ReadLine();
+                Console.WriteLine("Password cant be null");
+                askPasswords();
+;           }
+            else
+            {
+                if (Console.ReadLine() == password)
+                {
+                    Console.Write("correct");
+                }
+                else
+                {
+                    Console.WriteLine("Passwords did not match");
+                    askPasswords();
+                }
             }
-
-            menu.Valikko();
-            Console.WriteLine("Rekisteröityminen onnistui");
-
         }
     } 
 }
