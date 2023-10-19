@@ -13,22 +13,20 @@ namespace Palkanlaskenta.classes
         public void Valikko()
 
         {
-            Console.WriteLine("Hei tervetuloa Matrixiin");
-            Console.WriteLine("Haluatko kirjautua vai rekisteröityä?");
-            Console.WriteLine("Valitsemalla 1 kirjaudut sisään");
-            Console.WriteLine("Valitsemalla 2 rekisteröidyt järjestelmään");
-            string valinta = (string)Console.ReadLine();
+            Console.WriteLine("1. kirjaudut");
+            Console.WriteLine("2. rekisteröidy");
+            int valinta = Convert.ToInt32(Console.ReadLine());
 
             switch (valinta)
             {
-                case "1":
+                case 1:
 
                     signin.login();
 
 
                     break;
 
-                case "2":
+                case 2:
                     
                     signin.register();
 
@@ -44,7 +42,7 @@ namespace Palkanlaskenta.classes
             Console.WriteLine("Valitsemalla 3 Lisää työtunteja"); // funktio joka kysyy työtunnit yms
             Console.WriteLine("Valitsemalla 4 työskentele tietokannan kanssa");
 
-            int valinta = int.Parse(Console.ReadLine());
+            int valinta = Convert.ToInt32(Console.ReadLine());
 
             switch (valinta)
             {

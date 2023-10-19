@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -28,41 +29,64 @@ namespace Palkanlaskenta.classes
             Console.Write("Username: ");            // asking username 
             string username = Console.ReadLine();   //getting input from user
             string email = askEmail();              // calling function that asks email address and stores that email value to email variable
+            string telNumber = askTel();            // same thing here as with email functions    Missing code here 
+            string passWord = askPasswords();
 
-            foreach (char item in email)            // loopping throught email variable as long as loop can fint this character @ to make sure it is email that user inputted
-            {
-                if (!email.Contains("@"))
-                {
-                    Console.WriteLine("Invalid email address. It must contain '@'.");
-                    askEmail(); // Re-ask for email
-                }
-                break;
-            };
-            askTel();                               // same thing here as with email functions    Missing code here 
-            askPasswords();
-            // Ask other information ^^
+
+
+            // Ask other information ^^            
+            register();
         }
         private string askTel()
         {
+            string telNumber;
             Console.Write("Tel Number: ");
-            string telNumber = Console.ReadLine();
-            if (telNumber == null)
+            telNumber = Console.ReadLine();
+            if (String.IsNullOrEmpty(telNumber))
             {
-                askEmail();
+                Console.WriteLine("Invalid phone number");
+                askTel();
+            }
+            else if (isDigitOnly(telNumber) == false)
+            {
+                Console.WriteLine("Invalid phone number");
+                askTel();
             }
             return telNumber;
+        }
+        bool isDigitOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                    
+                }
+            }
+            return true;
         }
         private string askEmail()
         {
             Console.Write("Email: ");
             string email = Console.ReadLine();
-            if (email == null)
+            if (String.IsNullOrEmpty(email))
             {
                 askEmail();
             }
+
+            foreach (char item in email)            // loopping throught email variable as long as loop can fint this character @ to make sure it is email that user inputted
+            {
+                if (!email.Contains("@"))
+                {
+                    Console.WriteLine("Invalid email address");
+                    askEmail(); // Re-ask for email
+                }
+                break;
+            }
             return email;
         }
-        private void askPasswords()
+        private string askPasswords()
         {
             Console.Write("Password: ");
             string password = Console.ReadLine();
@@ -77,7 +101,7 @@ namespace Palkanlaskenta.classes
             {
                 if (Console.ReadLine() == password)
                 {
-                    Console.Write("correct");
+                    Console.WriteLine("correct");
                 }
                 else
                 {
@@ -85,6 +109,7 @@ namespace Palkanlaskenta.classes
                     askPasswords();
                 }
             }
+            return password;
         }
     }
 }
