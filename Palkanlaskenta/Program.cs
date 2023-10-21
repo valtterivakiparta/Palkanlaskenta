@@ -15,6 +15,7 @@ namespace Palkanlaskenta
             connect.CreateTables(connect.createConnect()); // Making sure that database tables exists
             Valikot menu = new Valikot();
             menu.Valikko();
+            menu.paaValikko();
         }
     }
 }

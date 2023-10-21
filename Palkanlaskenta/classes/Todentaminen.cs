@@ -31,11 +31,8 @@ namespace Palkanlaskenta.classes
             string email = askEmail();              // calling function that asks email address and stores that email value to email variable
             string telNumber = askTel();            // same thing here as with email functions    Missing code here 
             string passWord = askPasswords();
+            login();                                //lisätty funtkio, jotta jatkuu registerin jälkee suoraa login kohtaa ja jne
 
-
-
-            // Ask other information ^^            
-            register();
         }
         private string askTel()
         {
@@ -111,5 +108,6 @@ namespace Palkanlaskenta.classes
             }
             return password;
         }
+
     }
 }
