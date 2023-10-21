@@ -10,6 +10,7 @@ namespace Palkanlaskenta.classes
     {
         public static Todentaminen signin = new Todentaminen();
         public static ConnectToDataBase connect = new ConnectToDataBase();
+
         public void Valikko()
 
         {
@@ -33,33 +34,65 @@ namespace Palkanlaskenta.classes
                     break;
             }
         }
+        public void addHours()   //tuntien lisäys funktio
+        {
+            int tunnit = Convert.ToInt32(Console.ReadLine());
+        }
+        public void addEmployee()    //työntekijän lisäsys funktio
+        {
+            Console.WriteLine("Anna työntekijän etunimi: ");
+            string firstName = Console.ReadLine();
+
+            Console.WriteLine("Anna työntekijän sukunimi: ");
+            string lastName = Console.ReadLine();
+
+            int age;
+            do
+            {
+                Console.WriteLine("Työntekijän ikä: ");
+            } while (!int.TryParse(Console.ReadLine(), out age));
+
+            Console.WriteLine("Osoite: ");
+            string address = Console.ReadLine();
+
+            Console.WriteLine("Henkilötunnus: ");
+            string ssn = Console.ReadLine();
+
+            double salary;
+            do
+            {
+                Console.WriteLine("Työntekijän palkka: ");
+            } while (!double.TryParse(Console.ReadLine(), out salary));
+
+        }
         public void paaValikko()
         {
-            Console.WriteLine("Hei, Anna valintasi.");
-            Console.WriteLine("Valitsemalla 0 työntekijä lista");
+            Console.WriteLine("Hei, valitse seuraavista");
+            Console.WriteLine("Valitsemalla 0 Työntekijälista");
             Console.WriteLine("Valitsemalla 1 Työtunnit"); // --||--
             Console.WriteLine("Valitsemalla 2 Lisää työntekijä"); // funktio systeemi joka tarjoo lisätä työntekijän
             Console.WriteLine("Valitsemalla 3 Lisää työtunteja"); // funktio joka kysyy työtunnit yms
-            Console.WriteLine("Valitsemalla 4 työskentele tietokannan kanssa");
+            Console.WriteLine("Valitsemalla 4 Työskentele tietokannan kanssa");
 
             int valinta = Convert.ToInt32(Console.ReadLine());
 
             switch (valinta)
             {
                 case 0:
-                    Console.WriteLine("Näytä työntekijät");
+                    Console.WriteLine("Työntekijälista: ");
                     break;
 
                 case 1:
-                    Console.WriteLine("Näytä työtunnit");
+                    Console.WriteLine("Työtuntisi: ");
                     break;
 
                 case 2:
-                    Console.WriteLine("Lisää työntekijä");
+                    Console.WriteLine("Lisää työntekijä: ");
+                    addEmployee();
                     break;
                 case 3:
-
-                    Console.WriteLine("Lisää työtunnit");
+                    Console.WriteLine("Lisää työtunnit: ");
+                    addHours();
                     break;
                 case 4:
                     connect.CreateTables(connect.createConnect());
